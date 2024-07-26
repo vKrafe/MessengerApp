@@ -1,0 +1,31 @@
+.app-layout {
+	&__container {
+		display: flex;
+		max-width: 98.571rem;
+		padding: 0px 1.429rem;
+		margin: 0 auto;
+		height: 100vh;
+	}
+
+	&__app-chats {
+		flex: 0 1 533px;
+		border-left: 0.071rem solid #fff700;
+	}
+
+	&__app-messages{
+		flex: 1 1 auto;
+		position: relative;
+		overflow: hidden;
+		border-right: 0.071rem solid #fff700;
+	}
+	&__popup-create-group {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba(0,0,0,0.5);
+		opacity: 0;
+		visibility: hidden;
+	}
+}

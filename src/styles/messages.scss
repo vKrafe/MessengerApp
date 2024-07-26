@@ -1,0 +1,100 @@
+.app-messages {
+	&__body {
+			flex: 1 1 100%;
+			background: $bodyBackground;
+			display: flex;
+			flex-direction: column;
+			padding: 0.357rem;
+			overflow: auto;
+
+			&>*:not(:last-child) {
+				min-height: 10.714rem;
+			}
+		}
+		
+	&__message-box {
+		display: flex;
+		align-items: center;
+		
+			&--reverse {
+				display: flex;
+				align-items: center;
+				flex-direction: row-reverse;
+			}
+		}
+
+		&__scroll {
+			height: 90.2vh;
+			overflow-y: auto;
+			scroll-behavior: smooth;
+		}
+	
+		&__avatar {
+			flex: 0 1 10.357rem;
+			display: flex;
+			justify-content: center;
+		}
+	
+		&__icon-box {
+			position: relative;
+		}
+	
+		&__size-image {
+			position: relative;
+			overflow: hidden;
+			width: 2.857rem;
+			height: 2.857rem;
+			border-radius: 50%;
+	
+			& img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+	
+		&__text {
+			position: relative;
+			max-width: 35.714rem;
+			padding: 1.429rem;
+			background-color: $text-background-left;
+
+			&::before,
+			&::after {
+					content: "";
+					position: absolute;
+					right: 100%;
+					top: 33%;
+					width: 0;
+					height: 0;
+					border-top: 0.714rem solid transparent;
+					border-bottom: 0.714rem solid transparent;
+					border-right: 1.429rem solid $text-background-left;
+				}
+
+			& span {
+				color: #ff0000;
+			}
+	
+			&--reverse {
+				background-color: $text-background-right;
+
+				&::before {
+					display: none;
+				}
+
+				&::after {
+						left: 100%;
+						border-right: 0; 
+						border-left: 1.429rem solid $text-background-right;
+					}
+
+				& span {
+					color: #0037ff;
+				}
+			}
+		}
+}

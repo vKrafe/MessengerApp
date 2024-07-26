@@ -1,0 +1,114 @@
+@import "./variables.scss";
+
+.app-messages {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	&__header-box {
+		display: flex;
+		min-height: 6.429rem;
+		align-items: center;
+		padding: 0px 3.571rem 0px 2.143rem;
+		gap: 1.071rem;
+
+		&>:not(.app-messages__name, .app-messages__btn) {
+			background: $white;
+		}
+	}
+
+	&__name {
+		flex: 1 1 100%;
+		font-size: 1.286rem;
+
+		&>*:not(:last-child) {
+			margin: 0px 0px 0.357rem 0px;
+		}
+	}
+
+	&__name-text {
+		padding: 0.357rem;
+	}
+
+	&__status {
+		padding: 0.357rem;
+	}
+
+	&__btn {
+		& button {
+			padding: 0.357rem;
+			min-width: 11.429rem;
+			min-height: 3.214rem;
+			border-radius: 1.429rem;
+			font-size: 1.286rem;
+			background: #ff0000;
+			color: #fff;
+		}
+	}
+	&__icon-circle-arrows {
+		flex: 0 1 4.571rem;
+		display: flex;
+		justify-content: flex-end;
+		border-left: 0.071rem solid #2c2929;
+	}
+	&__footer {
+		min-height: 4.643rem;
+		display: flex;
+		align-items: center;
+		padding: 0px 0px 0px 2.143rem;
+
+		&>:not(.app-messages__input-message, .app-messages__icon-send) {
+			background: $white;
+		}
+	}
+
+	&__input-message {
+		flex: 1 1 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+
+		& input {
+			height: 70%;
+			width: 100%;
+			font-size: 1.429rem;
+		}
+	}
+
+	&__size-attach {
+		flex: 0 1 50px;
+		position: relative;
+		overflow: hidden;
+		margin: 0px 7.929rem 0px 0px;
+		cursor: pointer;
+		
+		& input {
+			display: none;
+		}
+	}
+
+	&__icon-send {
+		position: absolute;
+		bottom: -2.5rem;
+		right: -2.5rem;
+		background: #CCC;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 9.357rem;
+		width: 9.357rem;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: all 0.5s ease 0s;
+
+		&:hover{
+			background: #00d9ff;
+		}
+	}
+
+	&__size-send {
+		position: absolute;
+		top: 1.5rem;
+		left: 1.071rem;
+	}
+}
