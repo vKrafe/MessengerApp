@@ -6,13 +6,13 @@
 	&--name-group {
 		& span{
 			color: red;
-			font-size: 50px;
+			font-size: 3.125rem;
 		}
 	}
 	
 	&__box {
 		display: flex;
-		min-height: 100px;
+		min-height: 6.25rem;
 		align-items: center;
 		&:hover{
 			cursor: pointer;
@@ -24,7 +24,7 @@
 	}
 	
 	&__icon-avatar {
-		flex: 0 1 145px;
+		flex: 0 1 9.063rem;
 		display: flex;
 		justify-content: center;
 	}
@@ -36,8 +36,8 @@
 	&__size-image {
 		position: relative;
 		overflow: hidden;
-		width: 40px;
-		height: 40px;
+		width: 2.5rem;
+		height: 2.5rem;
 		border-radius: 50%;
 
 		& img {
@@ -55,52 +55,52 @@
 
 		&--active {
 			display: block;
-			width: 10px;
-			height: 10px;
+			width: 0.625rem;
+			height: 0.625rem;
 			border-radius: 50%;
 			background: $green;
 			position: absolute;
 			right: 0;
-			bottom: 2px;
+			bottom: 0.625rem;
 		}
 	}
 
 	&__text-box {
-		width: 255px;
-		max-height: 110px;
+		width: 15.938rem;
+		max-height: 6.875rem;
 		overflow: hidden;
 		word-wrap: break-word;
 	}
 
 	&__name-text {
-		padding: 5px;
+		padding: 0.313rem;
 	}
 
 	&__message {
-		padding: 5px;
+		padding: 0.313rem;
 	}
 
 	&__time-box {
-		flex: 0 1 145px;
+		flex: 0 1 9.063rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 
 		&>*:not(:last-child) {
-			margin: 0px 0px 5px 0px;
+			margin: 0rem 0rem 0.313rem 0rem;
 		}
 	}
 
 	&__time-text {
-		padding: 5px;
+		padding: 0.313rem;
 	}
 
 	&__circle-delivered {
 		display: none;
 		
 		&--delivered {
-			width: 20px;
-			height: 20px;
+			width: 1.25rem;
+			height: 1.25rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;

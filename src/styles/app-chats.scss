@@ -5,11 +5,12 @@
 	flex-direction: column;
 	height: 100vh;
 
+
 	&__header-box {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0px 1.429rem 0px 2.143rem;
+		padding: 0rem 1.429rem 0rem 2.143rem;
 		background: $green;
 		min-height: 6.429rem;
 	}
@@ -39,7 +40,7 @@
 	&__box-search {
 		display: flex;
 		align-items: center;
-		padding: 0px 1.429rem 0px 0.714rem;
+		padding: 0rem 1.429rem 0rem 0.714rem;
 		min-height: 3.571rem;
 		font-size: 1.429rem;
 		border-bottom: 0.214rem solid $bodyBackground;
@@ -50,7 +51,23 @@
 		}
 		
 		&>*:not(:last-child) {
-			margin: 0px 0.857rem 0px 0px;
+			margin: 0rem 0.857rem 0rem 0rem;
+		}
+	}
+
+	&__icon-search {
+		position: relative;
+		width: 2rem;
+		height: 2rem;
+
+		& img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 
@@ -59,7 +76,7 @@
 		align-items: center;
 
 		&>*:not(:last-child) {
-			margin: 0px 0.357rem 0px 0px;
+			margin: 0rem 0.357rem 0rem 0rem;
 		}
 	}
 
@@ -78,18 +95,113 @@
 	&__chat-list {
 		flex: 1 1 auto;
 		overflow: auto;
-		padding: 3.571rem 0px 0px 0px;
+		padding: 3.571rem 0rem 0rem 0rem;
 	}
+
 	&__controls {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0px 2.857rem 0px 3.929rem;
+		padding: 0rem 2.857rem 0rem 3.929rem;
 		background: $green;
 		min-height: 4.643rem;
 
 		& > *{
 			background: $green;
+
+			& img {
+				width: 3rem;
+				height: 3rem;
+			}
+		}
+	}
+
+	&__active-user {
+		position: relative;
+		width: 2.625rem;
+		height: 2.625rem;
+		overflow: hidden;
+
+		& img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 1;
+
+		}
+		
+		& > :first-child {
+			opacity: 1;
+			visibility: visible;
+			z-index: 2;
+			transition-duration: 1s;
+
+			&:hover {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+
+	&__create-group {
+		position: relative;
+		width: 2.625rem;
+		height: 2.625rem;
+		overflow: hidden;
+
+		& img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 1;
+
+		}
+		
+		& > :first-child {
+			opacity: 1;
+			visibility: visible;
+			z-index: 2;
+			transition-duration: 1s;
+
+			&:hover {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+
+	&__unread-messages {
+		position: relative;
+		width: 2.625rem;
+		height: 2.625rem;
+		overflow: hidden;
+
+		& img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 1;
+		}
+		
+		& > :first-child {
+			opacity: 1;
+			visibility: visible;
+			z-index: 2;
+			transition-duration: 1s;
+
+			&:hover {
+				opacity: 0;
+				visibility: hidden;
+			}
 		}
 	}
 }

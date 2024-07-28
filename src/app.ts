@@ -1,8 +1,8 @@
-import avatarLogo from "./assets/images/logo-1.svg";
-import avatarLogo1 from "./assets/images/logo-2.svg";
-import avatarLogo2 from "./assets/images/logo-3.svg";
-import avatarLogo3 from "./assets/images/logo-4.svg";
-import avatarLogo4 from "./assets/images/logo-5.svg";
+import avatarLogo from "./assets/images/users-icon/logo-1.svg";
+import avatarLogo1 from "./assets/images/users-icon/logo-2.svg";
+import avatarLogo2 from "./assets/images/users-icon/logo-3.svg";
+import avatarLogo3 from "./assets/images/users-icon/logo-4.svg";
+import avatarLogo4 from "./assets/images/users-icon/logo-5.svg";
 import { UpdateChatList } from "./scripts/dom-updaters";
 import { UpdateMessagesChat } from "./scripts/dom-updaters";
 import { PostMessage } from "./scripts/post-message";

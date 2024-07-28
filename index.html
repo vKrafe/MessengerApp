@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="favicon.png" type="image/png">
-	<title>pure-js-app</title>
 	<link href="./src/styles/index.scss" rel="stylesheet" />
+	<title>pure-js-app</title>
 </head>
 
 <body>
@@ -23,13 +23,15 @@
 
 					<div class="app-chats__icon-logo">
 						<div class="app-chats__size-image">
-							<img src="src/assets/images/logo.svg" alt="icon-logo">
+							<img src="src/assets/images/users-icon/logo.svg" alt="icon-logo">
 						</div>
 					</div>
 				</div>
 
 				<div class="app-chats__box-search">
-					<label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+					<label for="search" class="app-chats__icon-search">
+						<img src="src/assets/images/icon-search.png" alt="search">
+					</label>
 
 					<input id="search" placeholder="Search" type="text">
 
@@ -52,15 +54,18 @@
 
 				<div class="app-chats__controls">
 					<button class="app-chats__active-user">
-						<i class="fa-solid fa-list"></i>
+						<img src="src/assets/images/icon-active-user.png" alt="active-user">
+						<img src="src/assets/images/hover-icon-active-user.png" alt="hover-active-user">
 					</button>
 
 					<button class="app-chats__create-group">
-						<i class="fa-solid fa-people-group"></i>
+						<img src="src/assets/images/icon-group-button.png" alt="create-group">
+						<img src="src/assets/images/hover-icon-group-button.png" alt="hover-create-group">
 					</button>
 
 					<button class="app-chats__unread-messages">
-						<i class="fa-regular fa-futbol"></i>
+						<img src="src/assets/images/icon-unread-message.png" alt="unread-message">
+						<img src="src/assets/images/hover-icon-unread-message.png" alt="hover-unread-message">
 					</button>
 				</div>
 			</div>
@@ -86,12 +91,14 @@
 						<button>Mark as resolved</button>
 					</div>
 
-					<button class="app-messages__size-icon">
-						<i class="fa-solid fa-arrows-spin"></i>
+					<button class="app-messages__icon-change-theme">
+						<img src="src/assets/images/icon-change-theme.png" alt="change-theme">
+						<img src="src/assets/images/hover-icon-change-theme.png" alt="change-theme">
 					</button>
 
-					<button class="app-messages__size-icon">
-						<i class="fa-solid fa-circle-info"></i>
+					<button class="app-messages__icon-info">
+						<img src="src/assets/images/icon-info.png" alt="info">
+						<img src="src/assets/images/hover-icon-info.png" alt="hover-info">
 					</button>
 				</div>
 
@@ -105,15 +112,16 @@
 						<input id="message" placeholder="Write a message" type="text">
 					</div>
 
-					<label class="app-messages__size-attach">
-						<input type="file" name="paperclip">
-						<i class="fa-solid fa-paperclip"></i>
+					<label class="app-messages__attach">
+						<input type="file" name="document-binding">
+						<img src="src/assets/images/icon-document-binding.png" alt="document-binding">
 					</label>
 
 					<button class="app-messages__icon-send">
 
 						<div class="app-messages__size-send">
-							<i class="fa-regular fa-paper-plane"></i>
+							<img src="src/assets/images/icon-send-message.png" alt="send-message">
+							<img src="src/assets/images/hover-icon-send-message.png" alt="hover-send-message">
 						</div>
 
 					</button>
@@ -121,6 +129,7 @@
 			</div>
 			<!---------------------- app-messages ---------------------------->
 		</div>
+
 		<div class="app-layout__popup-create-group popup-create-group">
 			<div class="popup-create-group__body">
 				<div class="popup-create-group__content">

@@ -12,26 +12,26 @@
 	}
 
 	&__content {
-		width: 800px;
+		width: 50rem;
 		background: #ace1ea;
-		padding: 40px;
-		min-height: 400px;
-		border-radius: 30px;
+		padding: 2.5rem;
+		min-height: 25rem;
+		border-radius: 1.875rem;
 		text-align: right;
 
 		& input {
-			border-bottom: 1px solid $black;
+			border-bottom: 0.063rem solid $black;
 			background: #ace1ea;
-			font-size: 50px;
+			font-size: 3.125rem;
 			color: $black;
 			transition: all 0.4s ease 0s;
 			&::placeholder {
-				font-size: 50px;
+				font-size: 3.125rem;
 				color: $black;
 				transition: all 0.4s ease 0s;
 			}
 			&:hover {
-				border-bottom: 1px solid $white;
+				border-bottom: 0.063rem solid $white;
 				&::placeholder {
 						color: $white;
 					}
@@ -46,11 +46,11 @@
 		.popup-create-group__shape-image,
 		.popup-create-group__input-name-group,
 		.popup-create-group__input-description){
-			font-size: 45px;
+			font-size: 2.813rem;
 			color: $black;
 			background: #ace1ea;
-			margin: 0px 40px 0px 0px;
-			padding: 10px 20px;
+			margin: 0rem 2.5rem 0rem 0rem;
+			padding: 0.625rem 1.25rem;
 			transition: all 0.5s ease 0s;
 			&:hover {
 				background: $white;
@@ -65,8 +65,8 @@
 
 	&__image {
 		display: flex;
-		flex: 0 1 150px;
-		height: 150px;
+		flex: 0 1 9.375rem;
+		height: 9.375rem;
 		border-radius: 50%;
 		background: $white;
 		align-items: center;
@@ -107,13 +107,13 @@
 	}
 
 	&__input-name-group {
-		margin: 0px 0px 0px 70px;
-		height: 70px;
-		width: 450px;
+		margin: 0rem 0rem 0rem 4.375rem;
+		height: 4.375rem;
+		width: 28.125rem;
 	}
 
 	&__input-description {
 		width: 100%;
-		margin: 40px 0px;
+		margin: 2.5rem 0rem;
 	}
 }

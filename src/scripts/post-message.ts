@@ -1,5 +1,5 @@
 import { MessagesChatTemplateProps } from "../templates/message.template";
-import avatarLogoMain from "../assets/images/logo.svg";
+import avatarLogoMain from "../assets/images/users-icon/logo.svg";
 import { UpdateMessagesChat } from "./dom-updaters";
 
 export interface listAvatarProps {
