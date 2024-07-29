@@ -22,9 +22,9 @@ export const ChatListTemplate = (props: ChatListTemplateProps, value: string) =>
 			${value}
 		</span>`
 	)
-
+	
 	return `
-	<div id="${id}" class="${cn('chat-list__box', { 'chat-list__box--one active': isOwn1, 'chat-list--active': active })}">
+	<div id="${id}" class="${cn('chat-list__box', {'chat-list--active': active })}">
 		<div class="chat-list__icon-avatar">
 			<div class="chat-list__icon-box">
 				<div class="chat-list__size-image">

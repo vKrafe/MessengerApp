@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	const valueNameCreatGroup = document.querySelector('.popup-create-group__input-name-group') as HTMLInputElement
 	const valueDescriptionCreatGroup = document.querySelector('.popup-create-group__input-description') as HTMLInputElement
 	const changeImage = document.querySelector('.popup-create-group__img') as HTMLImageElement
+	const nameActive = document.querySelector('.app-messages__name-text b') as Element
+	const munuArrow = document.querySelector('.app-chats__traingle-down') as Element
+	const onlineUsers = document.querySelector('.online-users') as Element
+	const unreadMessage = document.querySelector('.unread-message') as Element
+	const downArrow = document.querySelector('.app-chats__down-arrow') as Element
 
 	messageInput.setAttribute('disabled', 'true')
 
@@ -66,10 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const activeItem = parseInt((e.target as Element).closest('.chat-list__box')?.id);
 
+		const activeName = chatLists[activeItem].name
+
+		nameActive.textContent = activeName
+
 		activeItemMessages = chatLists[activeItem].messages
 
+		
 		const chatList = getChatList({ word: searchInput.value, chatLists })
-
+		
 		UpdateChatList({ chatListContainer, chatLists: chatList, chatListsActive: activeItem }, null);
 
 		UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages })
@@ -92,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			UpdateChatList({ chatListContainer, chatLists: unreadMessages, chatListsActive }, null);
 
 			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages })
-		} else if (chatListContainer.classList.contains('activeUsers') && searchInput.value.length === 0) {
+		} else if (chatListContainer.classList.contains('activeUsers')) {
 			UpdateChatList({ chatListContainer, chatLists: activeUsers, chatListsActive }, null);
 
 			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages })
@@ -106,8 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	ActiveUsers({ activeUsers, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
+	
+	ActiveUsers({ activeUsers: onlineUsers, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
 
 	UnreadMessages({ unreadMessages, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
+	
+	UnreadMessages({ unreadMessages: unreadMessage, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
 
 	ShowAllChatList({ showAllChatList, chatListContainer, chatLists, UpdateChatList, chatListsActive })
 
@@ -156,4 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			UpdateChatList({ chatListContainer, chatLists, chatListsActive }, null);
 		}
 	});
+
+	munuArrow.addEventListener('click', function () {
+		munuArrow.parentElement.classList.toggle('close')
+		
+		document.body.addEventListener('click',function (e) {
+			if (!(e.target as Element).closest('.app-chats__down-arrow')) {
+				downArrow.classList.remove('close')
+			}
+		})
+	})
 });

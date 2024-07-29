@@ -10,20 +10,18 @@ export const MessagesChatTemplate = (props: MessagesChatTemplateProps) => {
 	const { text, isOwn, src } = props;
 
 	return `
-        <div class="${cn('app-messages__message-box', { 'app-messages__message-box--reverse': isOwn })}">
+		<div class="${cn('app-messages__message-box', { 'app-messages__message-box--reverse': isOwn })}">
 			<div class="app-messages__avatar">
 				<div class="app-messages__icon-box">
 					<div class="app-messages__size-image">
-					    <img src="${src}" alt="icon-avatar">
+						<img src="${src}" alt="icon-avatar">
 					</div>
-					
-					<div class="app-messages__circle-active outofplace"></div>
 				</div>
 			</div>
 
-		    <div class="${cn('app-messages__text', { 'app-messages__text--reverse': isOwn })}">
-			    <span>${text}</span>
+			<div class="${cn('app-messages__text', { 'app-messages__text--reverse': isOwn })}">
+				<span>${text}</span>
 			</div>
 		</div>
-    `
+	`
 };

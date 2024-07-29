@@ -9,14 +9,14 @@
 
 	&__app-chats {
 		flex: 0 1 33.313rem;
-		border-left: 0.071rem solid #fff700;
+		border-left: 0.071rem solid $yellow;
 	}
 
 	&__app-messages{
 		flex: 1 1 auto;
 		position: relative;
 		overflow: hidden;
-		border-right: 0.071rem solid #fff700;
+		border-right: 0.071rem solid $yellow;
 	}
 	
 	&__popup-create-group {
@@ -25,7 +25,7 @@
 		height: 100%;
 		top: 0;
 		left: 0;
-		background-color: rgba(0,0,0,0.5);
+		background-color: $bg-opacity;
 		opacity: 0;
 		visibility: hidden;
 	}

@@ -1,12 +1,12 @@
 .chat-list {
 	&--active {
-			background: #cc00ff!important;
+			background: $active-bg!important;
 		}
 	
 	&--name-group {
 		& span{
-			color: red;
-			font-size: 3.125rem;
+			color: $name-group;
+			font-size: 2.125rem;
 		}
 	}
 	
@@ -14,12 +14,10 @@
 		display: flex;
 		min-height: 6.25rem;
 		align-items: center;
+		
 		&:hover{
 			cursor: pointer;
-			background: #f7f6f6;
-			&.chat-list--active {
-				background: #cc00ff;
-			}
+			background: $hover-bg;
 		}
 	}
 	
@@ -61,7 +59,7 @@
 			background: $green;
 			position: absolute;
 			right: 0;
-			bottom: 0.625rem;
+			bottom: 0.225rem;
 		}
 	}
 
@@ -112,5 +110,5 @@
 }
 
 .selected-text {
-	background: #00ff2f;
+	background: $selected-text;
 }

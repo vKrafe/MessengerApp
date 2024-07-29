@@ -13,7 +13,7 @@
 
 	&__content {
 		width: 50rem;
-		background: #ace1ea;
+		background: $bodyBackground;
 		padding: 2.5rem;
 		min-height: 25rem;
 		border-radius: 1.875rem;
@@ -21,7 +21,7 @@
 
 		& input {
 			border-bottom: 0.063rem solid $black;
-			background: #ace1ea;
+			background: $bodyBackground;
 			font-size: 3.125rem;
 			color: $black;
 			transition: all 0.4s ease 0s;
@@ -48,7 +48,7 @@
 		.popup-create-group__input-description){
 			font-size: 2.813rem;
 			color: $black;
-			background: #ace1ea;
+			background: $bodyBackground;
 			margin: 0rem 2.5rem 0rem 0rem;
 			padding: 0.625rem 1.25rem;
 			transition: all 0.5s ease 0s;
