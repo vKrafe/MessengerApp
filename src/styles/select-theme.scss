@@ -1,0 +1,70 @@
+.app-messages {
+	&__select-theme {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 6.429rem;
+		background: $active-bg !important;
+		z-index: 3;
+		display: flex;
+		transform: translate(0%, -100%);
+		transition: transform 1s ease 0s;
+	}
+
+	&__item-select-theme {
+		flex: 0 1 16.666%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&__box-color-select-theme {
+		flex: 0 0 70%;
+		width: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+	}
+
+	&__color-select-theme {
+		height: 82%;
+		width: 70%;
+		cursor: pointer;
+	}
+
+	&__select-theme--active {
+		border: 2px solid $grey;
+	}
+
+	[data-theme=black] {
+		background: $black;
+	}
+
+	[data-theme=white] {
+		background: $white;
+	}
+
+	[data-theme=red] {
+		background: $red;
+	}
+
+	[data-theme=green] {
+		background: $green;
+	}
+
+	[data-theme=blue] {
+		background: $blue;
+	}
+
+	[data-theme=yellow] {
+		background: $yellow;
+	}
+
+	&__name-select-theme {
+		flex: 0 0 30%;
+		display: flex;
+		align-items: center;
+	}
+}

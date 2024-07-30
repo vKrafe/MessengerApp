@@ -3,6 +3,10 @@
 	flex-direction: column;
 	min-height: 100vh;
 
+	& .active-theme > &__select-theme {
+		transform: translate(0%, 0%);
+	}
+
 	&__header-box {
 		display: flex;
 		min-height: 6.429rem;
@@ -54,7 +58,7 @@
 
 	&__icon-info {
 		position: relative;
-		width: 3.5rem;
+		min-width: 2.2rem;
 		height: 2.2rem;
 
 		& img {
@@ -107,7 +111,6 @@
 			}
 		}
 	}
-
 
 	&__footer {
 		min-height: 4.643rem;

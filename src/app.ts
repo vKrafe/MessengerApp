@@ -3,8 +3,7 @@ import avatarLogo1 from "./assets/images/users-icon/logo-2.svg";
 import avatarLogo2 from "./assets/images/users-icon/logo-3.svg";
 import avatarLogo3 from "./assets/images/users-icon/logo-4.svg";
 import avatarLogo4 from "./assets/images/users-icon/logo-5.svg";
-import { UpdateChatList } from "./scripts/dom-updaters";
-import { UpdateMessagesChat } from "./scripts/dom-updaters";
+import { UpdateChatList, UpdateMessagesChat, UpdateThemeLists } from "./scripts/dom-updaters";
 import { PostMessage } from "./scripts/post-message";
 import { getChatList } from "./helpers/get-chat-list";
 import { classList } from "./helpers/class-list";
@@ -16,6 +15,7 @@ import camera from "./assets/images/camera.svg";
 document.addEventListener('DOMContentLoaded', () => {
 	const chatListContainer = document.querySelector('.app-chats__chat-list') as Element
 	const messagesContainer = document.querySelector('.app-messages__body') as Element
+	const themeContainer = document.querySelector('.app-messages__select-theme') as Element
 	const hundleSendMessage = document.querySelector('.app-messages__icon-send') as Element
 	const unreadMessages = document.querySelector('.app-chats__unread-messages') as Element
 	const activeUsers = document.querySelector('.app-chats__active-user') as Element
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const onlineUsers = document.querySelector('.online-users') as Element
 	const unreadMessage = document.querySelector('.unread-message') as Element
 	const downArrow = document.querySelector('.app-chats__down-arrow') as Element
+	const btnTheme = document.querySelector('.app-messages__icon-change-theme') as Element
+	const selectTheme = document.querySelector('.app-messages__select-theme') as Element
+	const messageHeaderContainer = document.querySelector('.app-messages__header-box') as Element
 
 	messageInput.setAttribute('disabled', 'true')
 
@@ -54,7 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		{ src: avatarLogo4 }
 	]
 
+	const themeLists = [
+		{id:0, name: 'black'},
+		{id:1, name: 'white'},
+		{id:2, name: 'red'},
+		{id:3, name: 'green'},
+		{id:4, name: 'blue'},
+		{id:5, name: 'yellow'}
+	]
+
 	let chatListsActive = null;
+
+	let themeListsActive = null;
 
 	const src = {
 		value: ''
@@ -174,10 +188,32 @@ document.addEventListener('DOMContentLoaded', () => {
 	munuArrow.addEventListener('click', function () {
 		munuArrow.parentElement.classList.toggle('close')
 		
-		document.body.addEventListener('click',function (e) {
+		document.body.addEventListener('click', function (e) {
 			if (!(e.target as Element).closest('.app-chats__down-arrow')) {
 				downArrow.classList.remove('close')
 			}
 		})
+	})
+
+	btnTheme.addEventListener('click', function () {
+		btnTheme.parentElement.classList.add('active-theme')
+
+		selectTheme.classList.add('active-theme')
+
+		UpdateThemeLists({themeContainer, themeLists, themeListsActive})
+
+		setTimeout(()=>{
+			document.body.addEventListener('click', function body(e) {
+				if(!(e.target as Element).closest('.app-messages__select-theme')) {
+					messageHeaderContainer.classList.remove('active-theme')
+
+					document.body.removeEventListener('click', body)
+				} else if ((e.target as Element).closest('.app-messages__select-theme')) {
+					const activeItem = parseInt((e.target as Element).closest('.app-messages__color-select-theme')?.id)
+		
+					UpdateThemeLists({themeContainer, themeLists, themeListsActive: activeItem})
+				}
+			})
+		}, 40)
 	})
 });
