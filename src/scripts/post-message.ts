@@ -15,10 +15,10 @@ export interface PostMessageArgs {
 	listAvatarActive: number,
 }
 
-export const PostMessage = (args: PostMessageArgs) => {
+export const PostMessage = (args: PostMessageArgs, themeListsActive: string) => {
 	const { userMain, message, value, messagesContainer, listAvatar, listAvatarActive } = args
 
 	message.unshift({ isOwn: userMain, src: userMain ? listAvatar[listAvatarActive].src : avatarLogoMain, text: value })
 
-	UpdateMessagesChat({ messagesContainer, messagesChat: message })
+	UpdateMessagesChat({ messagesContainer, messagesChat: message }, themeListsActive)
 }

@@ -3,10 +3,10 @@ import cn from 'classnames';
 export interface MessagesChatTemplateProps {
 	text: string,
 	isOwn: boolean,
-	src: string
+	src: string,
 }
 
-export const MessagesChatTemplate = (props: MessagesChatTemplateProps) => {
+export const MessagesChatTemplate = (props: MessagesChatTemplateProps, name: string) => {
 	const { text, isOwn, src } = props;
 
 	return `
@@ -19,7 +19,7 @@ export const MessagesChatTemplate = (props: MessagesChatTemplateProps) => {
 				</div>
 			</div>
 
-			<div class="${cn('app-messages__text', { 'app-messages__text--reverse': isOwn })}">
+			<div class="${cn('app-messages__text', { 'app-messages__text--reverse': isOwn })}" data-message="${name}">
 				<span>${text}</span>
 			</div>
 		</div>

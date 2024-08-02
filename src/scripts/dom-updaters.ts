@@ -12,7 +12,7 @@ export interface UpdateChatListArgs {
 
 export interface UpdateMessagesChatArgs {
 	messagesContainer: Element,
-	messagesChat: MessagesChatTemplateProps[],
+	messagesChat: MessagesChatTemplateProps[]
 }
 
 export interface UpdateThemeListsArgs {
@@ -28,10 +28,10 @@ export const UpdateChatList = (args: UpdateChatListArgs, value: string) => {
 	chatListContainer.innerHTML = chatLists.map(chatList => ChatListTemplate({ ...chatList, active: chatList.id === chatListsActive }, value)).join('')
 }
 
-export const UpdateMessagesChat = (args: UpdateMessagesChatArgs) => {
+export const UpdateMessagesChat = (args: UpdateMessagesChatArgs, name: string) => {
 	const { messagesContainer, messagesChat } = args
 
-	messagesContainer.innerHTML = messagesChat ? messagesChat.map(message => MessagesChatTemplate(message)).join('') : null
+	messagesContainer.innerHTML = messagesChat ? messagesChat.map(message => MessagesChatTemplate({...message}, name)).join('') : null
 }
 
 export const UpdateThemeLists = (args: UpdateThemeListsArgs) => {

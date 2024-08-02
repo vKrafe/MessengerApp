@@ -4,10 +4,10 @@
 			background: $bodyBackground;
 			display: flex;
 			flex-direction: column;
-			padding: 0.357rem;
+			padding: 1.357rem;
 			overflow: auto;
 
-			&>*:not(:last-child) {
+			& > *:not(:last-child) {
 				min-height: 10.714rem;
 			}
 		}
@@ -20,77 +20,256 @@
 				display: flex;
 				align-items: center;
 				flex-direction: row-reverse;
+
 			}
 		}
 
-		&__scroll {
-			height: 90.2vh;
-			overflow-y: auto;
-			scroll-behavior: smooth;
+	&__message-box > [data-message=default] {
+		background-color: $text-background-left;
+
+		&::after {
+			border-right: 1.429rem solid $text-background-left;
 		}
-	
-		&__avatar {
-			flex: 0 1 10.357rem;
-			display: flex;
-			justify-content: center;
+
+		&::before {
+			display: none !important;
 		}
-	
-		&__icon-box {
-			position: relative;
+		
+		& > span {
+			color: $red;
 		}
+	}
+
+	&__message-box > [data-message=grey] {
+		background-color: $red;
+
+		&::after {
+			border-right: 1.429rem solid $red;
+		}
+
+		&::before {
+			display: none !important;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box > [data-message=red] {
+		background-color: $yellow;
+
+		&::after {
+			border-right: 1.429rem solid $yellow;
+		}
+
+		&::before {
+			display: none !important;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box > [data-message=green] {
+		background-color: $white;
+
+		&::after {
+			border-right: 1.429rem solid $white;
+		}
+
+		&::before {
+			display: none !important;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box > [data-message=blue] {
+		background-color: $green;
+
+		&::after {
+			border-right: 1.429rem solid $green;
+		}
+
+		&::before {
+			display: none !important;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box > [data-message=yellow] {
+		background-color: $blue;
+
+		&::after {
+			border-right: 1.429rem solid $blue;
+		}
+
+		&::before {
+			display: none !important;
+		}
+		
+		& > span {
+			color: $white;
+		}
+	}
+
+	&__message-box--reverse > [data-message=default] {
+		background-color: $text-background-right;
+		
+		&::after {
+			border-left: 1.429rem solid $text-background-right;
+			border-right: 0;
+		}
+		
+		& > span {
+			color: $red;
+		}
+	}
+
+	&__message-box--reverse > [data-message=grey] {
+		background-color: $yellow;
+		
+		&::after {
+			border-left: 1.429rem solid $yellow;
+			border-right: 0;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box--reverse > [data-message=red] {
+		background-color: $grey;
+		
+		&::after {
+			border-left: 1.429rem solid $grey;
+			border-right: 0;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box--reverse > [data-message=green] {
+		background-color: $yellow;
+		
+		&::after {
+			border-left: 1.429rem solid $yellow;
+			border-right: 0;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box--reverse > [data-message=blue] {
+		background-color: $red;
+		
+		&::after {
+			border-left: 1.429rem solid $red;
+			border-right: 0;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__message-box--reverse > [data-message=yellow] {
+		background-color: $green;
+		
+		&::after {
+			border-left: 1.429rem solid $green;
+			border-right: 0;
+		}
+		
+		& > span {
+			color: $black;
+		}
+	}
+
+	&__scroll {
+		height: 90.2vh;
+		overflow-y: auto;
+		scroll-behavior: smooth;
+	}
 	
-		&__size-image {
-			position: relative;
+	&__avatar {
+		flex: 0 1 10.357rem;
+		display: flex;
+		justify-content: center;
+	}
+	
+	&__icon-box {
+		position: relative;
+	}
+	
+	&__size-image {
+		position: relative;
+		overflow: hidden;
+		width: 2.857rem;
+		height: 2.857rem;
+		border-radius: 50%;
+	
+		& img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	
+	&__text {
+		position: relative;
+		max-width: 35.714rem;
+		padding: 1.429rem;
+		background-color: $text-background-left;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			right: 100%;
+			top: 33%;
+			width: 0;
+			height: 0;
+			border-top: 0.714rem solid transparent;
+			border-bottom: 0.714rem solid transparent;
+			border-right: 1.429rem solid $text-background-left;
+		}
+
+		& span {
+			display: inline-block;
+			color: $red;
+			max-width: 33.714rem;
 			overflow: hidden;
-			width: 2.857rem;
-			height: 2.857rem;
-			border-radius: 50%;
-	
-			& img {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 100%;
-				object-fit: cover;
-			}
+			text-overflow: ellipsis;
 		}
 	
-		&__text {
-			position: relative;
-			max-width: 35.714rem;
-			padding: 1.429rem;
-			background-color: $text-background-left;
+		&--reverse {
+			background-color: $text-background-right;
 
-			&::before,
+			&::before {
+				display: none;
+			}
+
 			&::after {
-					content: "";
-					position: absolute;
-					right: 100%;
-					top: 33%;
-					width: 0;
-					height: 0;
-					border-top: 0.714rem solid transparent;
-					border-bottom: 0.714rem solid transparent;
-					border-right: 1.429rem solid $text-background-left;
-				}
-
-			& span {
-				color: $red;
-			}
-	
-			&--reverse {
-				background-color: $yellow;
-
-				&::before {
-					display: none;
-				}
-
-				&::after {
-						left: 100%;
-						border-right: 0; 
-						border-left: 1.429rem solid $yellow;
-					}
+				left: 100%;
+				border-right: 0; 
+				border-left: 1.429rem solid $text-background-right;
 			}
 		}
+	}
 }

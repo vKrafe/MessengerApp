@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const unreadMessage = document.querySelector('.unread-message') as Element
 	const downArrow = document.querySelector('.app-chats__down-arrow') as Element
 	const btnTheme = document.querySelector('.app-messages__icon-change-theme') as Element
-	const selectTheme = document.querySelector('.app-messages__select-theme') as Element
 	const messageHeaderContainer = document.querySelector('.app-messages__header-box') as Element
 
 	messageInput.setAttribute('disabled', 'true')
@@ -58,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	]
 
 	const themeLists = [
-		{id:0, name: 'black'},
-		{id:1, name: 'white'},
-		{id:2, name: 'red'},
-		{id:3, name: 'green'},
-		{id:4, name: 'blue'},
-		{id:5, name: 'yellow'}
+		{ id: 0, name: 'default' },
+		{ id: 1, name: 'grey' },
+		{ id: 2, name: 'red' },
+		{ id: 3, name: 'green' },
+		{ id: 4, name: 'blue' },
+		{ id: 5, name: 'yellow' }
 	]
 
 	let chatListsActive = null;
@@ -91,12 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		activeItemMessages = chatLists[activeItem].messages
 
-		
+
 		const chatList = getChatList({ word: searchInput.value, chatLists })
-		
+
 		UpdateChatList({ chatListContainer, chatLists: chatList, chatListsActive: activeItem }, null);
 
-		UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages })
+		UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages }, themeListsActive)
 
 		const unreadMessages = chatLists.filter(item => {
 			return item.isOwn2 === true
@@ -111,15 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (scoreItems.length === chatLists.length) {
 			UpdateChatList({ chatListContainer, chatLists, chatListsActive }, null);
 
-			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages })
+			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages }, themeListsActive)
 		} else if (chatListContainer.classList.contains('unreadMessages')) {
 			UpdateChatList({ chatListContainer, chatLists: unreadMessages, chatListsActive }, null);
 
-			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages })
+			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages }, themeListsActive)
 		} else if (chatListContainer.classList.contains('activeUsers')) {
 			UpdateChatList({ chatListContainer, chatLists: activeUsers, chatListsActive }, null);
 
-			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages })
+			UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages }, themeListsActive)
 		}
 
 		if (chatLists[chatListsActive]) {
@@ -130,11 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	ActiveUsers({ activeUsers, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
-	
+
 	ActiveUsers({ activeUsers: onlineUsers, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
 
 	UnreadMessages({ unreadMessages, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
-	
+
 	UnreadMessages({ unreadMessages: unreadMessage, classList, chatListContainer, chatLists, UpdateChatList, chatListsActive, searchInput })
 
 	ShowAllChatList({ showAllChatList, chatListContainer, chatLists, UpdateChatList, chatListsActive })
@@ -154,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (value.trim() !== '') {
 
-			PostMessage({ userMain, message: activeItemMessages, value, messagesContainer, listAvatar, listAvatarActive: chatListsActive })
+			PostMessage({ userMain, message: activeItemMessages, value, messagesContainer, listAvatar, listAvatarActive: chatListsActive }, themeListsActive)
 
 			messageInput.value = ''
 		}
@@ -167,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const userMain = false
 
 		if (e.keyCode === 13 && value.trim() !== '') {
-			PostMessage({ userMain, message: activeItemMessages, value, messagesContainer, listAvatar, listAvatarActive: chatListsActive })
+			PostMessage({ userMain, message: activeItemMessages, value, messagesContainer, listAvatar, listAvatarActive: chatListsActive }, themeListsActive)
 
 			messageInput.value = ''
 		}
@@ -187,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	munuArrow.addEventListener('click', function () {
 		munuArrow.parentElement.classList.toggle('close')
-		
+
 		document.body.addEventListener('click', function (e) {
 			if (!(e.target as Element).closest('.app-chats__down-arrow')) {
 				downArrow.classList.remove('close')
@@ -195,25 +194,39 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	})
 
-	btnTheme.addEventListener('click', function () {
+	btnTheme.addEventListener('click', function (event) {
 		btnTheme.parentElement.classList.add('active-theme')
-
-		selectTheme.classList.add('active-theme')
-
-		UpdateThemeLists({themeContainer, themeLists, themeListsActive})
-
-		setTimeout(()=>{
-			document.body.addEventListener('click', function body(e) {
-				if(!(e.target as Element).closest('.app-messages__select-theme')) {
-					messageHeaderContainer.classList.remove('active-theme')
-
-					document.body.removeEventListener('click', body)
-				} else if ((e.target as Element).closest('.app-messages__select-theme')) {
-					const activeItem = parseInt((e.target as Element).closest('.app-messages__color-select-theme')?.id)
 		
-					UpdateThemeLists({themeContainer, themeLists, themeListsActive: activeItem})
+		UpdateThemeLists({ themeContainer, themeLists, themeListsActive })
+
+		event.stopPropagation()
+
+		document.body.addEventListener('click', function body(e) {
+			if(!(e.target as Element).closest('.app-messages__select-theme')) {
+				messageHeaderContainer.classList.remove('active-theme')
+
+				document.body.removeEventListener('click', body)
+			} else {
+				const activeItem = parseInt((e.target as Element).closest('.app-messages__color-select-theme')?.id)
+
+				const activeNameColor = (e.target as Element).closest('.app-messages__color-select-theme')?.dataset.theme
+
+				themeListsActive = activeNameColor
+
+				let container = document.querySelector('.app-messages__body') as Element
+
+				if(themeListsActive == 'default') {
+					(container as any).style.backgroundColor = '#ace1ea'
+				} else {
+					(container as any).style.backgroundColor = themeListsActive
 				}
-			})
-		}, 40)
+
+				UpdateThemeLists({themeContainer, themeLists, themeListsActive: activeItem})
+
+				if (activeNameColor){
+					UpdateMessagesChat({ messagesContainer, messagesChat: activeItemMessages }, themeListsActive)
+				}
+			}
+		})
 	})
-});
+})

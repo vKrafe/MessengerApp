@@ -7,9 +7,9 @@
 		height: 6.429rem;
 		background: $active-bg !important;
 		z-index: 3;
-		display: flex;
 		transform: translate(0%, -100%);
 		transition: transform 1s ease 0s;
+		display: flex;
 	}
 
 	&__item-select-theme {
@@ -35,15 +35,15 @@
 	}
 
 	&__select-theme--active {
-		border: 2px solid $grey;
+		border: 2px solid $white;
 	}
 
-	[data-theme=black] {
-		background: $black;
+	[data-theme=default] {
+		background: $bodyBackground;
 	}
 
-	[data-theme=white] {
-		background: $white;
+	[data-theme=grey] {
+		background: $grey;
 	}
 
 	[data-theme=red] {
